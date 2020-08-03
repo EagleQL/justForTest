@@ -36,10 +36,9 @@ jobs:
           echo "${{ secrets.SSHKEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           eval $(ssh-agent -s)
-          ssh-keygen -R 47.240.51.148
           ssh-add ~/.ssh/id_rsa
+          ssh-keyscan 47.240.51.148 >> ~/.ssh/known_hosts
 
-          # ssh-keyscan 47.240.51.148 >> ~/.ssh/known_hosts
           # ssh root@${{secrets.SERVER_IP}} "cd /your/workspace/path && sh update.sh "
 
       # Runs a set of commands using the runners shell
