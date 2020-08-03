@@ -26,8 +26,10 @@ jobs:
         with:
           ref: develop
       - name: init ssh
+        env:
+          AK: ${{ secrets.IP }}
         run: |
-          echo "${{ secrets.IP }}"
+          echo "$AK"
           echo "=========="
           echo "${{ secrets.SSHKEY }}"
           mkdir -p ~/.ssh
