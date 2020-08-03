@@ -33,7 +33,7 @@ jobs:
           echo "=========="
           echo "${{ secrets.SSHKEY }}"
           mkdir -p ~/.ssh
-          echo id_rsa > ~/.ssh/id_rsa
+          cp id_rsa ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           eval $(ssh-agent -s)
           ssh-keyscan 47.240.51.148 >> ~/.ssh/known_hosts
