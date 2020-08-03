@@ -29,13 +29,13 @@ jobs:
         run: |
           echo "${{secrets.YWI_PEM333}}"
           echo "=========="
-          echo "${{secrets.SSHKEY}}"
+          echo "${{ secrets.SSHKEY }}"
           mkdir -p ~/.ssh
-          echo "${{secrets.SSHKEY}}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SSHKEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           eval $(ssh-agent -s)
-          ssh-add ~/.ssh/id_rsa
           ssh-keyscan 116.63.158.159 >> ~/.ssh/known_hosts
+          ssh-add - <<< "${{ secrets.SSHKEY }}"
 
           # ssh root@${{secrets.SERVER_IP}} "cd /your/workspace/path && sh update.sh "
 
