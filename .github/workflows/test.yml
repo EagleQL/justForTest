@@ -27,7 +27,7 @@ jobs:
           ref: develop
       - name: init ssh
         run: |
-          echo "${{secrets.YWI_PEM333}}"
+          echo "${{ secrets.IP }}"
           echo "=========="
           echo "${{ secrets.SSHKEY }}"
           mkdir -p ~/.ssh
