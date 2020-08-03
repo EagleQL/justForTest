@@ -29,7 +29,7 @@ jobs:
         env:
           AK: ${{ secrets.IP }}
         run: |
-          echo "$AK"
+          echo $AK
           echo "=========="
           echo "${{ secrets.SSHKEY }}"
           mkdir -p ~/.ssh
