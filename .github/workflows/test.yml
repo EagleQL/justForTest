@@ -37,12 +37,12 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           eval $(ssh-agent -s)
           ssh-add ~/.ssh/id_rsa
-          ssh-keyscan -p 2223 47.240.51.148 > ~/.ssh/known_hosts
+          ssh-keyscan -p 2223 47.240.51.148 >> ~/.ssh/known_hosts
 
           # ssh root@${{secrets.SERVER_IP}} "cd /your/workspace/path && sh update.sh "
 
       # Runs a set of commands using the runners shell
       - name: redeploy alpha server
         run: |
-          ssh -p 2223 root@47.240.51.148 "mkdir -p ~/NOWTESTfromEG;"
+          ssh -p 2223 root@47.240.51.148 "mkdir -p ~/NowTestFromEG;ls"
           echo deployed successfully.
